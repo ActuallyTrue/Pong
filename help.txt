@@ -1,0 +1,1 @@
+openal32.dll must be in the executable directory for sound to work.
