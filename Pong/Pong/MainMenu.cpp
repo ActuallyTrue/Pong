@@ -1,5 +1,6 @@
 #include <iostream>
 #include "MainMenu.h"
+#include "MainGame.h"
 
 
 
@@ -20,8 +21,6 @@ void MainMenu::Initialize(sf::RenderWindow* window) {
 	this->quit = new sf::Text("Quit", *this->font, 90U);
 	this->quit->setOrigin(this->quit->getGlobalBounds().width / 2, this->quit->getGlobalBounds().height / 2);
 	this->quit->setPosition(window->getSize().x / 2 + this->quit->getGlobalBounds().width, window->getSize().y / 2);
-
-	std::cout << "initialized!\n";
 }
 
 void MainMenu::Update(sf::RenderWindow* window) {
@@ -43,6 +42,7 @@ void MainMenu::Update(sf::RenderWindow* window) {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Return)) {
 		switch (this->selected) {
 		case 0: //play the game
+			coreState.SetState(new MainGame());
 			break;
 		case 1: //stop the game
 			quitGame = true;
@@ -69,5 +69,6 @@ void MainMenu::Render(sf::RenderWindow* window) {
 void MainMenu::Destroy(sf::RenderWindow* window) {
 	delete this->font;
 	delete this->title;
-	std::cout << "Destroyed!\n";
+	delete this->start;
+	delete this->quit;
 }
