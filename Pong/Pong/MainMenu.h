@@ -13,4 +13,9 @@ public:
 private:
 	sf::Font* font;
 	sf::Text* title;
+	sf::Text* start;
+	sf::Text* quit;
+
+	int selected;
+	bool leftKey, rightKey;
 };

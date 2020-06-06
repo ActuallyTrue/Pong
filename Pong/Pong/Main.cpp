@@ -4,7 +4,7 @@
 #include <iostream>
 
 GameState coreState;
-
+bool quitGame = false;
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Pong");
@@ -23,13 +23,17 @@ int main()
 			if (event.type == sf::Event::Closed)
 				window.close();
 		}
-
+	
 		window.clear(sf::Color::Black);
 
 		coreState.Update();
 		coreState.Render();
 
 		window.display();
+
+		if (quitGame) {
+			window.close();
+		}
 	}
 
 	return 0;
