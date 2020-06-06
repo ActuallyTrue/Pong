@@ -1,6 +1,9 @@
 #pragma once
 
 #include "GameState.h"
+#include "Entity.h"
+#include "PlayerPaddle.h"
+
 class MainGame : public TinyState {
 public:
 	void Initialize(sf::RenderWindow* window);
@@ -9,5 +12,6 @@ public:
 	void Destroy(sf::RenderWindow* window);
 
 private:
-	
+	PlayerPaddle* player1;
+	PlayerPaddle* player2;
 };

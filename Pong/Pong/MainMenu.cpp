@@ -8,7 +8,7 @@
 void MainMenu::Initialize(sf::RenderWindow* window) {
 	this->selected = 0;
 	this->font = new sf::Font();
-	this->font->loadFromFile("LoveBug.ttf");
+	this->font->loadFromFile("Graphics/Fonts/LoveBug.ttf");
 
 	this->title = new sf::Text("Pong.", *this->font, 126U);
 	this->title->setOrigin(this->title->getGlobalBounds().width / 2, this->title->getGlobalBounds().height / 2);
@@ -24,8 +24,8 @@ void MainMenu::Initialize(sf::RenderWindow* window) {
 }
 
 void MainMenu::Update(sf::RenderWindow* window) {
-	this->rightKey = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right);
-	this->leftKey = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left);
+	this->rightKey = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D);
+	this->leftKey = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A);
 	if (leftKey) {
 		this->selected--;
 	}

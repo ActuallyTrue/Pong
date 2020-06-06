@@ -1,4 +1,5 @@
 #include <SFML/Window.hpp>
+#include <Windows.h>
 #include "GameState.h"
 #include "MainMenu.h"
 #include <iostream>
@@ -34,6 +35,8 @@ int main()
 		if (quitGame) {
 			window.close();
 		}
+
+		//Sleep(5);
 	}
 
 	return 0;
