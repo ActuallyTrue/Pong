@@ -2,13 +2,20 @@
 #include <Windows.h>
 #include "GameState.h"
 #include "MainMenu.h"
+#include "WindowSize.h"
 #include <iostream>
 
 GameState coreState;
 bool quitGame = false;
+
+int windowHeight;
+int windowWidth;
+
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Pong");
+	windowWidth = 800;
+	windowHeight = 600;
+	sf::RenderWindow window(sf::VideoMode(windowWidth, windowHeight), "Pong");
 
 	coreState.SetWindow(&window);
 	coreState.SetState(new MainMenu());
@@ -36,7 +43,7 @@ int main()
 			window.close();
 		}
 
-		//Sleep(5);
+		Sleep(5);
 	}
 
 	return 0;
